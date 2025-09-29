@@ -44,6 +44,6 @@ class Point implements Cloneable {
 
     @Override
     public String toString() {
-        return "Point(" + x + ", " + y + ")";
+        return "Точка(" + x + ", " + y + ")";
     }
 }
