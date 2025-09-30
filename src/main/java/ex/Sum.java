@@ -15,15 +15,30 @@ public class Sum {
     public static void main(String[] args) {
         double sum = 0;
 
+/*Задача 2
+        Практика ООП. Исключения #2. Необрабатываемые исключения
+        Исключение
+        NumberFormatException относится к unchecked типу, то есть его логика
+        говорит о том, что необходимо не обрабатывать его, а предотвратить его
+        появление. Перепишите приложение из задания #1 таким образом, чтобы
+        обрабатывать исключение не требовалось.*/
+
         for (String arg : args) {
-            try {
+            if (isValidNumber(arg)) {
                 double number = Double.parseDouble(arg);
                 sum += number;
-            } catch (NumberFormatException e) {
-                System.out.println("Предупреждение: '" + arg + "' не является числом и будет игнорировано");
             }
         }
 
         System.out.println("Результат: " + sum);
+    }
+
+        //является ли строка валидным числом типа double
+        private static boolean isValidNumber(String str) {
+            if (str == null || str.isEmpty()) {
+                return false;
+            }
+        //допустимые форматы чисел
+        return str.matches("-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?");
     }
 }
